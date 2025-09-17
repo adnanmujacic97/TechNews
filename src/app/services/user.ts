@@ -1,11 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../user';
+
+export interface User {
+  id: number;
+  ime: string;
+  prezime: string;
+  username: string;
+  password: string;  
+  email: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 
 export class UserService {
   private apiUrl = 'http://localhost/technews/api/get-user.php'; // PHP backend

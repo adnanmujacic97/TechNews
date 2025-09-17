@@ -30,7 +30,7 @@ if exist "%DEST_DIR%" (
 
 :: Create destination folder if it doesn't exist
 if not exist "%DEST_DIR%" (
-    echo 📂 Creating destination folder: %DEST_DIR%
+    echo Creating destination folder: %DEST_DIR%
     mkdir "%DEST_DIR%"
     if %errorlevel% neq 0 (
         echo  Failed to create folder!
