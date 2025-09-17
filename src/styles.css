@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root
+{
+  --primary-color: #551F00;     
+  --secondary-color: #803C15;   
+  --text-color: #FFC9AA;        
+  --bg-color: #D4916A;
+  --bg-color2: #AA6239;   
+}
+
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html
+{
+    background-color: var(--bg-color);
+}
+
+body
+{
+    font-family: NeoSans, Helvetica, Arial, sans-serif;
+    line-height: 1.3;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg-color);
+
+}
