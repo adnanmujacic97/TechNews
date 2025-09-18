@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
 import { Home } from './home/home';
 import { Register } from './register/register';
+import { Login } from './login/login';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
-{ path: '', component: Home }, // Default ruta
-{ path: 'register', component: Register }, // /kontakti prikazuje KontaktiComponent
-// { path: 'about', component: AboutComponent }, // /about prikazuje AboutComponent
-{ path: '**', redirectTo: "", pathMatch: 'full' } // Fallback ruta
+  { path: '', component: Login },           // ← Default: show login
+  { path: 'home', component: Home, canActivate: [authGuard] },
+  { path: 'login', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '' } // Fallback to login
 ];
