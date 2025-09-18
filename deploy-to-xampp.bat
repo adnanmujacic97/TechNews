@@ -7,8 +7,8 @@ setlocal
 echo  Syncing PHP files to XAMPP htdocs...
 
 :: ============ CONFIGURE THESE PATHS ============
-set "SOURCE_DIR=api"
-set "DEST_DIR=C:\xampp\htdocs\TechNews\api"
+set "SOURCE_DIR=api\"
+set "DEST_DIR=C:\xampp\htdocs\api"
 :: =============================================
 
 :: Check if source directory exists

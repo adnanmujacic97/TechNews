@@ -1,15 +1,23 @@
 <div class = "user-container">
   <div class = "user">
-      <h2>
-        {{user?.ime}}
-      </h2>
+
+    <h2>User Detail</h2>
+    <div *ngIf="user">
+      <p><strong>ID:</strong> {{ user.ID }}</p>
+      <p><strong>Name:</strong> {{ user.Ime }} {{ user.Prezime }}</p>
+      <p><strong>Username:</strong> {{ user.Username }}</p>
+      <p><strong>Email:</strong> {{ user.Email }}</p>
+      <p><strong>Role:</strong> {{ user.Role }}</p>
+    </div>
+    <!-- <p *ngIf="!user && !error">Loading...</p>
+    <p *ngIf="error">Error: {{ error }}</p> -->
+
       <br>
-      <h3> - Alfred Hitchcock</h3>
   </div>
-  <div style = " margin: auto">
-    <!-- <img class="citat-img" src="slikeHome\Hitchcock_Alfred.jpg" alt="Alfred Hitchcock"> -->
-  </div>
+  <!-- <div style = " margin: auto">
+  </div> -->
 </div>
-<!-- <div class="uvod">
+<!-- <h3> - Alfred Hitchcock</h3>
+<div class="uvod">
   <h1>Dobrodošli na moju web stranicu za filmove, gde možete otkriti najbolje delove svetske kinematografije — od klasičnih hitova do savremenih blockbastera. Pregledajte našu kolekciju, pronađite nešto novo za gledanje i prepustite se magiji filma!</h1>  
 </div> -->
