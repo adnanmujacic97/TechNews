@@ -46,7 +46,7 @@ echo Copying PHP files...
 xcopy "%SOURCE_DIR%\*.php" "%DEST_DIR%" /Y /D /F >nul
 @REM xcopy "%SOURCE_DIR%\*.json" "%DEST_DIR%" /Y /D /F >nul
 @REM xcopy "%SOURCE_DIR%\*.txt" "%DEST_DIR%" /Y /D /F >nul
-@REM xcopy "%SOURCE_DIR%\helpers" "%DEST_DIR%\helpers\" /E /Y /D /F >nul
+xcopy "%SOURCE_DIR%\helpers" "%DEST_DIR%\helpers\" /E /Y /D /F >nul
 
 if %errorlevel% leq 1 (
     echo  Files copied successfully!

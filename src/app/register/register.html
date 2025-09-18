@@ -1,0 +1,56 @@
+<h2>Register New User</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="ime">First Name:</label>
+    <input type="text" id="ime" formControlName="ime" />
+    <div class="error" *ngIf="registerForm.get('ime')?.invalid && registerForm.get('ime')?.touched">
+      First name is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="prezime">Last Name:</label>
+    <input type="text" id="prezime" formControlName="prezime" />
+    <div class="error" *ngIf="registerForm.get('prezime')?.invalid && registerForm.get('prezime')?.touched">
+      Last name is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username" />
+    <div class="error" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+      Username is required and must be unique.
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" />
+    <div class="error" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+      Valid email is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" />
+    <div class="error" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+      Password must be at least 6 characters.
+    </div>
+  </div>
+
+  <div>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword" />
+    <div class="error" *ngIf="passwordMismatch">
+      Passwords do not match.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+</form>

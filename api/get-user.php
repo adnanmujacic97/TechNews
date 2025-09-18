@@ -5,16 +5,19 @@ header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Headers: Content-Type");
 
 // Database connection
-$host = 'localhost';
-$dbname = 'dbtechnews';
-$username = 'root';
-$password = '';
+// $host = 'localhost';
+// $dbname = 'dbtechnews';
+// $username = 'root';
+// $password = '';
+
+include 'db.php';
+
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Sanitize input
+    // $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    $db = getDB();
     $requestedUsername = $_GET['username'] ?? '';
     if (!$requestedUsername) {
         http_response_code(400);
@@ -22,7 +25,7 @@ try {
         exit;
     }
 
-    $stmt = $pdo->prepare("SELECT ID, Ime, Prezime, Username, Password, Email, Role FROM tblUser WHERE Username = ?");
+    $stmt = $db->prepare("SELECT ID, Ime, Prezime, Username, Password, Email, Role FROM tblUser WHERE Username = ?");
     $stmt->execute([$requestedUsername]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
