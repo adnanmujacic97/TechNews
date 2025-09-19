@@ -37,7 +37,9 @@ export class AuthService {
     return this.http.post<{ success: boolean; message?: string; user?: User }>(
       'http://localhost/api/login.php',
       { username, password },
-      { withCredentials: true } // 🔑 Critical: sends session cookie
+      { withCredentials: true,
+        headers: { 'Content-Type': 'application/json' }
+       } 
     );
   }
 

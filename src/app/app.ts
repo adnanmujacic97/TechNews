@@ -1,6 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { RouterLink, RouterOutlet,Router } from '@angular/router';
+import { RouterLink, NavigationEnd, RouterOutlet,Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { filter } from 'rxjs';
 // import { HttpClient } from '@angular/common/http';
 // import { Home } from "./home/home";
 
@@ -19,7 +20,7 @@ export class App implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Check session immediately
+  //   // Check session immediately
     this.authService.checkSession().subscribe({
       next: (res) => {
         if (res.loggedIn && res.user) {
@@ -34,5 +35,27 @@ export class App implements OnInit {
         console.error('Session check failed');
       }
     });
+    // this.router.events
+    //   .pipe(filter(event => event instanceof NavigationEnd))
+    //   .subscribe(() => {
+    //     this.authService.checkSession().subscribe({
+    //       next: (res) => {
+    //         if (res.loggedIn) {
+    //           // Sync user if changed (e.g., role updated)
+    //           this.authService.setUser(res.user);
+    //         } else {
+    //           // Not logged in → go to login
+    //           if (!this.router.url.includes('login')) {
+    //             this.router.navigate(['']);
+    //           }
+    //         }
+    //       },
+    //       error: () => {
+    //         // Network error? Assume not logged in
+    //         this.router.navigate(['']);
+    //       }
+    //     });
+    //   });
   }
 }
+

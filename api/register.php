@@ -43,7 +43,7 @@ if (!empty($errors)) {
 }
 
 // Hash password
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+// $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 // Database connection
 $host = 'localhost';
@@ -80,7 +80,7 @@ try {
         INSERT INTO tbluser (Ime, Prezime, UserName, Password, Email, Role) 
         VALUES (?, ?, ?, ?, ?, 'Reader')
     ");
-    $stmt->execute([$ime, $prezime, $username, $hashedPassword, $email]);
+    $stmt->execute([$ime, $prezime, $username, $password, $email]);
 
     echo json_encode([
         "success" => true,

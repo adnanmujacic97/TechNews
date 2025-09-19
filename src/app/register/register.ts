@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface RegisterResponse {
   success: boolean;
@@ -21,7 +22,7 @@ export class Register implements OnInit {
   errorMessage = '';
   successMessage = '';
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.registerForm = this.fb.group({
       ime: ['', Validators.required],
       prezime: ['', Validators.required],
@@ -59,6 +60,7 @@ export class Register implements OnInit {
             this.successMessage = res.message;
             this.errorMessage = '';
             this.registerForm.reset();
+            this.router.navigate(['']);
           } else {
             this.errorMessage = res.message;
             this.successMessage = '';

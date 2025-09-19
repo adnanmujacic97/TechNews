@@ -12,7 +12,7 @@
     {{ successMessage }}
   </div>
 
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin($event)" action="javascript:void(0)"  novalidate>
 
     <!-- Username -->
     <div class="form-group">
@@ -50,6 +50,6 @@
   </form>
 
   <div class="links">
-    <a routerLink="/register">Don't have an account? Register</a>
+    <a routerLink="/register" routerLinkActive="active" >Don't have an account? Register</a>
   </div>
 </div>

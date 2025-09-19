@@ -6,7 +6,8 @@ import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   { path: '', component: Login },           // ← Default: show login
-  { path: 'home', component: Home, canActivate: [authGuard] },
+  { path: 'home', component: Home },
+  { path: 'register', component: Register }, 
   { path: 'login', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '' } // Fallback to login
 ];
